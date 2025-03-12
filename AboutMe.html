@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jasper</title>
+    <link rel="stylesheet" href="abtme.css">
+</head>
+<body>
+    <h1 id="abtmectr">About Me</h1>
+
+    <!-- Image container for hover effect -->
+    <div id="husky-container">
+        <div id="image-wrapper">
+            <!-- Original "Self Portrait" Image -->
+            <img id="husky" class="image" src="https://images.unsplash.com/photo-1627220832671-b8fbf262f5cb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="A Siberian husky with blue eyes standing on snow">
+            
+            <!-- Second Image that appears on hover -->
+            <img id="husky2" class="image" src="https://images.unsplash.com/photo-1488643673641-1527a227662e?q=80&w=1952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="A second Siberian husky image">
+        </div>
+    </div>
+s
+    <div id="fullscreen-modal">
+        <span id="close-btn">&times;</span>
+        <img id="fullscreen-img" src="" alt="Expanded Husky Image">
+    </div>
+
+    <!-- Bio Section -->
+    <div id="bio">
+        <h2>Meet Jasper!</h2>
+        <p>
+            Greetings, hoomans! I’m Jasper, a fluffy Siberian Husky with an eye for web design and an appetite for snacks.
+            When I’m not coding for IT&C101 with my paws, you can find me sprinting through the snowy tundra, howling at the moon,
+            or strategically convincing my owners that I haven’t eaten in days (even though I just had a meal).
+        </p>
+        <p>
+            I specialize in front-end design, tail-wagging animations, and barking at suspicious-looking squirrels.
+            If you ever need a web developer with fluffy expertise, look no further. Just leave payment in belly rubs and treats.
+        </p>
+    </div>
+    <br>
+    <p id="footer-text">Jasper the Siberian husky is a real husky that definitely created this website.</p>
+
+    <!-- Jasper is a fictional character -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const husky1 = document.getElementById("husky");
+            const husky2 = document.getElementById("husky2");
+            const fullscreenModal = document.getElementById("fullscreen-modal");
+            const fullscreenImg = document.getElementById("fullscreen-img");
+            const closeBtn = document.getElementById("close-btn");
+
+            // Add event listeners for clicking images
+            husky1.addEventListener("click", () => openFullscreen(husky1.src));
+            husky2.addEventListener("click", () => openFullscreen(husky2.src));
+
+            function openFullscreen(imageSrc) {
+                fullscreenImg.src = imageSrc;
+                fullscreenModal.style.display = "flex";
+            }
+
+            // Close modal on clicking "X" button or outside the image
+            closeBtn.addEventListener("click", () => {
+                fullscreenModal.style.display = "none";
+            });
+
+            fullscreenModal.addEventListener("click", (event) => {
+                if (event.target === fullscreenModal) {
+                    fullscreenModal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
